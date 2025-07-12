@@ -1,0 +1,84 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}About Us{% endblock title %}
+
+{% block body %}
+<div class="container py-5">
+  <h1 class="mb-4 text-center">About Us</h1>
+
+  <p class="lead text-center">
+    Welcome to <strong>NepalKart</strong> — your homegrown e‑commerce platform, proudly based in the heart of Nepal. We connect you to everything Nepali, from handcrafted pashmina shawls and organic Himalayan teas to locally roasted coffee and authentic handicrafts.
+  </p>
+
+  <hr>
+
+  <section class="row my-5">
+    <div class="col-12">
+      <h2>Our Story</h2>
+      <p>
+        NepalKart was born in Kathmandu in 2022, when a group of friends saw how many small artisans and rural farms struggled to reach customers beyond their village markets. We built an online marketplace where every corner of Nepal— from the terraced fields of Pokhara to the handcrafted studios of Bhaktapur — can showcase its products to a national audience.
+      </p>
+      <p>
+        Today, we serve thousands of customers across all seven provinces, delivering authentic Nepali goods right to your doorstep.
+      </p>
+    </div>
+  </section>
+
+  <section class="my-5">
+    <h2>Our Mission</h2>
+    <ul>
+      <li>Empower small-scale artisans and farmers with fair, transparent income.</li>
+      <li>Bring the highest-quality, locally made Nepali products to your home.</li>
+      <li>Promote sustainable practices and preserve Nepal’s rich cultural heritage.</li>
+    </ul>
+  </section>
+
+  <section class="row my-5">
+    <div class="col-md-6">
+      <h2>What Makes Us Different?</h2>
+      <ul>
+        <li><strong>100% Nepali Products:</strong> Every item is sourced, made, and shipped within Nepal.</li>
+        <li><strong>Direct Fair Trade:</strong> We pay producers a guaranteed fair price—no middlemen.</li>
+        <li><strong>Eco‑Friendly Packaging:</strong> Biodegradable and plastic‑free materials.</li>
+        <li><strong>Nationwide Delivery:</strong> From urban centers to remote mountain villages.</li>
+      </ul>
+    </div>
+    <div class="col-md-6">
+      <h2>Our Values</h2>
+      <p>
+        <strong>Integrity:</strong> We believe in honest pricing and open communication with both our sellers and buyers.<br>
+        <strong>Community:</strong> Building a digital bridge that unites Nepal’s diverse cultures through commerce.<br>
+        <strong>Quality:</strong> Every product is hand‑inspected for authenticity and craftsmanship.
+      </p>
+    </div>
+  </section>
+
+  <section class="my-5">
+    <h2>Meet the Team</h2>
+    <div class="row">
+      <div class="col-12">
+        <p><strong>Parash  Bista</strong> — Co‑Founder & CEO</p>
+        <p><strong>Ram  shrestha</strong> — CTO & Logistics Head</p>
+        <p><strong>Sita Tamang</strong> — Head of Merchant Relations</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="my-5">
+    <h2>Get in Touch</h2>
+    <p>
+      Have questions? Our customer support team is here for you:
+    </p>
+    <ul>
+      <li>Email: <a href="mailto:support@nepalkart.com">support@nepalkart.com</a></li>
+      <li>Phone: +977‑1‑5101234</li>
+      <li>Address: Lazimpat, Kathmandu, Nepal</li>
+    </ul>
+  </section>
+
+  <footer class="text-center py-4 border-top">
+    &copy; {{ now.year }} NepalKart &bull; All rights reserved.
+  </footer>
+</div>
+{% endblock body %}

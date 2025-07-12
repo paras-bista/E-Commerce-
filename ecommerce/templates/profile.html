@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<style>
+  .profile-card {
+    max-width: 400px;
+    margin: 0 auto;
+    border-radius: 1rem;
+    box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.15);
+    background: #fff;
+    padding: 2rem 1.5rem;
+  }
+  .profile-image {
+    width: 140px;
+    height: 140px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 4px solid #0d6efd;
+    box-shadow: 0 0 15px rgba(13,110,253,.5);
+  }
+  .user-name {
+    font-weight: 700;
+    font-size: 1.75rem;
+    margin-bottom: 0.3rem;
+  }
+  .user-info p {
+    font-size: 1rem;
+    margin-bottom: 0.25rem;
+    color: #6c757d;
+  }
+  .user-info p strong {
+    color: #343a40;
+  }
+  .logout-btn {
+    display: block;
+    width: 100%;
+    margin-top: 1.5rem;
+    position: relative;
+    z-index: 10;
+    cursor: pointer;
+  }
+</style>
+
+<div class="container py-5">
+  <div class="profile-card shadow-sm text-center">
+    {% if user.profile.image %}
+      <img src="{{ user.profile.image.url }}" alt="Profile Picture" class="profile-image mb-4">
+    {% else %}
+      <img src="{% static 'images/default-profile.png' %}" alt="Default Profile" class="profile-image mb-4">
+    {% endif %}
+    
+    <h3 class="user-name">{{ user.get_full_name|default:user.username }}</h3>
+    
+    <div class="user-info mb-3">
+      <p><strong>Email:</strong> {{ user.email }}</p>
+      {% if user.first_name or user.last_name %}
+        <p><strong>First Name:</strong> {{ user.first_name }}</p>
+        <p><strong>Last Name:</strong> {{ user.last_name }}</p>
+      {% endif %}
+      <p><small class="text-muted">Joined on {{ user.date_joined|date:"F j, Y" }}</small></p>
+    </div>
+    
+    <hr>
+    
+    {% if user.is_authenticated %}
+      <a href="{% url 'logout' %}" class="btn btn-outline-danger logout-btn">Log Out</a>
+    {% endif %}
+  </div>
+</div>
+{% endblock %}

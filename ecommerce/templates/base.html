@@ -1,0 +1,192 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>
+    {% block title %}
+    Ecommerce
+    {% endblock title %}
+  </title>
+  <meta name="description" content="ecommerce website we deliver products in 1 hour">
+  <meta name="amazon, flipkartpkart, myntra, ajio,"content="ecommerce">
+
+  <!-- Favicons -->
+  <link href="{% static 'assets/img/favicon.png' %}" rel="icon">
+  <link href="{% static 'assets/img/apple-touch-icon.png' %}" rel="apple-touch-icon">
+
+  <!-- Fonts -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/aos/aos.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+  
+  <!-- Template Main CSS File -->
+  <link href="{% static 'assets/css/main.css' %}" rel="stylesheet">
+</head>
+
+<body class="index-page">
+  <header id="header" class="header d-flex align-items-center fixed-top">
+    <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
+
+      <a href="/" class="logo d-flex align-items-center">
+        <img src="{% static 'assets/img/logo.png' %}" alt="Shop Cart Logo" class="img-fluid me-2" style="max-height: 40px; object-fit: contain; width: 120px;">
+        SHOP CARD</a>
+
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="/" class="">Home</a></li>
+          <li><a href="/about">About</a></li>
+          <li><a href="/checkout">Checkout</a></li>
+          <li><a href="/profile">Profile</a></li>
+
+            <button id="popcart" 
+            type="button" 
+            class="btn btn-outline-primary ms-auto" 
+            data-bs-toggle="popover" 
+            title="Your Cart">
+      Cart <span class="badge bg-danger">0</span>
+    </button>
+          
+          
+          <ul>
+            {% if user.is_authenticated %}
+              <li><a class="nav-link scrollto" href="/auth/logout/">Log Out</a></li>
+            {% else %}
+              <li class="dropdown">
+                <a href="#"><span>Sign In</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+                <ul>
+                  <li><a class="nav-link scrollto" href="/auth/signup/">Sign Up</a></li>
+                  <li><a class="nav-link scrollto" href="/auth/login/">Log In</a></li>
+                </ul>
+              </li>
+            {% endif %}
+          </ul>
+
+
+          </li>
+
+
+
+
+          <li><a href="/contact" class="nav-link scrollto bg-dark p-2 m-6">Contact</a></li>
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>
+
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="hero" class="hero section">
+    <div class="container text-center" data-aos="fade-up" data-aos-delay="100">
+      <div class="row justify-content-center">
+        <div class="col-lg-8">
+          <h1 class="display-4 fw-bold mb-4 text-white">Welcome to Ecommerce</h1>
+          {% block content %}
+          {% endblock content %}
+        </div>
+      </div>
+    </div>
+  </section><!-- /Hero Section -->
+  <main class="main">
+    {% block body %}
+      {% endblock body %}
+      
+  </main>
+
+  <footer id="footer" class="footer">
+    <div class="container footer-top">
+      <div class="row gy-4">
+        <div class="col-lg-5 col-md-12 footer-about">
+          <a href="/" class="logo d-flex align-items-center">
+            <img src="/static/assets/img/logo.png" alt="Shop Cart Logo" class="img-fluid" style="max-height: 40px;">
+          </a>
+          <p class="text-dark">Cras fermentum odio eu feugiat lide par naso tierra. Justo eget nada terra videa magna derita valies darta donna mare fermentum iaculis eu non diam phasellus.</p>
+          <div class="social-links d-flex mt-4">
+            <a href="" class="text-dark"><i class="bi bi-twitter-x"></i></a>
+            <a href="" class="text-dark"><i class="bi bi-facebook"></i></a>
+            <a href="" class="text-dark"><i class="bi bi-instagram"></i></a>
+            <a href="" class="text-dark"><i class="bi bi-linkedin"></i></a>
+          </div>
+        </div>
+
+        <div class="col-lg-2 col-6 footer-links">
+          <h4 class="text-dark fw-bold">Useful Links</h4>
+          <ul>
+            <li><a href="#" class="text-dark">Home</a></li>
+            <li><a href="#" class="text-dark">About us</a></li>
+            <li><a href="#" class="text-dark">Services</a></li>
+            <li><a href="#" class="text-dark">Terms of service</a></li>
+            <li><a href="#" class="text-dark">Privacy policy</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-2 col-6 footer-links">
+          <h4 class="text-dark fw-bold">Our Services</h4>
+          <ul>
+            <li><a href="#" class="text-dark">Web Design</a></li>
+            <li><a href="#" class="text-dark">Web Development</a></li>
+            <li><a href="#" class="text-dark">Product Management</a></li>
+            <li><a href="#" class="text-dark">Marketing</a></li>
+            <li><a href="#" class="text-dark">Graphic Design</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-3 col-md-12 footer-contact text-center text-md-start">
+          <h4 class="text-dark fw-bold">Contact Us</h4>
+          <p class="text-dark">A108 Adam Street</p>
+          <p class="text-dark">New York, NY 535022</p>
+          <p class="text-dark">United States</p>
+          <p class="mt-4 text-dark"><strong>Phone:</strong> <span>+1 5589 55488 55</span></p>
+          <p class="text-dark"><strong>Email:</strong> <span>info@example.com</span></p>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="container copyright text-center mt-4">
+      <p> <span>Copyright</span> <strong class="px-1 sitename">Tempo</strong> <span>All Rights Reserved</span></p>
+      <div class="credits">
+        <!-- All the links in the footer should remain intact. -->
+        <!-- You can delete the links only if you've purchased the pro version. -->
+        <!-- Licensing information: https://bootstrapmade.com/license/ -->
+        <!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] -->
+        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+      </div>
+    </div>
+
+  </footer>
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Preloader -->
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
+  <script src="{% static 'assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/php-email-form/validate.js' %}"></script>
+  <script src="{% static 'assets/vendor/aos/aos.js' %}"></script>
+  <script src="{% static 'assets/vendor/glightbox/js/glightbox.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/imagesloaded/imagesloaded.pkgd.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/isotope-layout/isotope.pkgd.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/swiper/swiper-bundle.min.js' %}"></script>
+
+  <!-- Main JS File -->
+
+  <script src="{% static 'assets/js/main.js' %}"></script>
+
+</body>
+
+</html>
